@@ -16,7 +16,21 @@ class PhotosController < ApplicationController
 
 
     d.save
+
     
-    render ({ :template => "templates/photos.html.erb"})
+    @input_photo_id=d.id
+  render ({ :template => "templates/photopage.html.erb"})
+  end 
+
+  def create_comment
+    g=Comment.new
+    g.photo_id=params.fetch("input_photo_id")
+    g.author_id=params.fetch("input_author_id")
+    g.body=params.fetch("input_body")
+    g.save
+
+    
+    @input_photo_id=g.photo_id
+  render ({ :template => "templates/photopage.html.erb"})
   end 
 end

@@ -18,7 +18,7 @@
 <dd> <%= photo.caption %>  </dd>
 
 <dt>Owner</dt>
-<dd> <%= photo.owner_id %>  </dd>
+<dd> <%=  User.where({ :id => photo.owner_id  }).at(0).username%>  </dd>
 
 <dt>Posted</dt>
 <dd> <%= photo.created_at %>  </dd>
