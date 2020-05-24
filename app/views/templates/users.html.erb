@@ -1,3 +1,19 @@
-<%x=User.count%>
 
-<h1><%=x%></h1>
+<%user_array=User.all%>
+<%=sample_user=User.where({ :username => "galen"}).at(0)%>
+
+<%=sample_user.fetch(:username)%>
+
+
+<%=user_array.each do |x|
+p x.fetch(:username)
+end 
+
+
+%>
+
+
+
+
+
+<h1>Page_rendered</h1>
