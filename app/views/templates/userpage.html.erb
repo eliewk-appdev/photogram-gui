@@ -18,7 +18,14 @@
 <dd>
 
 </dd>
+<dd>
+    <form action="/update_user/81" >
+      <label for="browser_username">Username</label>
+      <input id="browser_username" type="text" name="input_username" placeholder="Enter a username..." value="galen">
 
+      <button>Update user</button>
+    </form>
+  </dd>
 <h1> Own Photos (<%=Photo.where({ :owner_id => user.id }).count%>) </h1>
 
 <table border="1">
