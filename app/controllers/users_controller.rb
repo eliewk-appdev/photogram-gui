@@ -9,4 +9,12 @@ class UsersController < ApplicationController
     render ({ :template => "templates/userpage.html.erb"})
   end 
 
+  def create_row
+    d=User.new
+    d.username=params.fetch("input_username")
+    d.save
+    
+    render ({ :template => "templates/userpage.html.erb"})
+  end 
+
 end
