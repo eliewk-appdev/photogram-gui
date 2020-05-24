@@ -14,6 +14,13 @@
 <dt> ID </dt>
 <dd><%=user.id %></dd>
 
+<dt> Edit User </dt>
+<dd>
+
+</dd>
+
+<h1> Own Photos (<%=Photo.where({ :owner_id => user.id }).count%>) </h1>
+
 <table border="1">
 <tr>
 <th>
@@ -58,7 +65,7 @@ Posted
 </td>
 
 <td>
-<a href="/users/:x.username">Show details</a>
+<a href="/photos/<%=x.id%>">Show details <%=x.id%></a>
 </td>
 
 </tr>

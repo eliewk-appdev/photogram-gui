@@ -1,0 +1,65 @@
+<ul>
+  <li>
+<a href="/users">Users</a>
+</li>
+ <li>
+<a href="/photos">Photos</a>
+</li>
+</ul>
+
+<%photo= Photo.where({ :id => @input_photo_id }).at(0) %>
+
+<h1>Photo Details</h1>
+
+<dt>Image</dt>
+<dd> <img src= <%= photo.image %> >  </dd>
+
+<dt>Caption</dt>
+<dd> <%= photo.caption %>  </dd>
+
+<dt>Owner</dt>
+<dd> <%= photo.owner_id %>  </dd>
+
+<dt>Posted</dt>
+<dd> <%= photo.created_at %>  </dd>
+
+<dt>Edit Photo</dt>
+<dd> <%= photo.created_at %>  </dd> 
+
+<form action="/update_photo/628">
+<label for="browser_image">Image</label>
+<input id="browser_image" type="text" name="input_image" placeholder="Enter a URL for the image..">
+value="https://robohash.org/eligendiprovidentsed.png?size=300x300&amp;set=set1"
+
+<label for="browser_caption">Caption</label>
+      <textarea id="browser_caption" name="input_caption" placeholder="Enter a caption for the photo...">Every flight begins with a fall.</textarea>
+
+      <button>Update photo</button>
+    </form>
+</dd>
+
+<h2>Comments</h2>
+
+<table>
+  <tr>
+    <th>Commenter</th>
+    <th>Comment</th>
+    <th>Posted</th>
+  </tr>
+<% Comment.where({ :photo_id => @input_photo_id }).each do|x| %>
+  <tr>
+    <td>
+       <%=User.where({ :id => x.author_id }).at(0).username%>
+       
+    </td>
+
+    <td>
+       <%=x.body%>
+    </td>
+
+    <td>
+      <%=x.created_at%>
+    </td>
+  </tr>
+
+  <% end %>
