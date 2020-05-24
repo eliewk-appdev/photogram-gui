@@ -1,6 +1,10 @@
 class UsersController < ApplicationController
-  def userpage
-    @user_array=User.all
+  def user_all
     render ({ :template => "templates/users.html.erb"})
+    
+  end 
+  def user_page
+    @input_user_name= params.fetch("input_user_name")
+    render ({ :template => "templates/userpage.html.erb"})
   end 
 end

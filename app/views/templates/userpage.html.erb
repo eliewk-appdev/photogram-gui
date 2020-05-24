@@ -1,0 +1,65 @@
+<ul>
+  <li>
+<a href="/users">Users</a>
+</li>
+ <li>
+<a href="/photos">Photos</a>
+</li>
+</ul>
+
+<%user= User.where({ :username => @input_user_name }).at(0) %>
+
+<h1><%=user.username %></h1>
+
+<dt> ID </dt>
+<dd><%=user.id %></dd>
+
+<table border="1">
+<tr>
+<th>
+Image
+</th>
+
+<th>
+Owner
+</th>
+
+<th>
+Caption
+</th>
+
+<th>
+Posted
+</th>
+
+<th></th>
+</tr>
+
+<% Photo.where({ :owner_id => user.id }).each do|x| %>
+
+<tr>
+
+
+<td>
+<img src= <%= x.image %> > 
+
+</td>
+
+<td>
+<%= x.owner_id %>
+</td>
+
+<td>
+<%= x.caption %>
+</td>
+
+<td>
+<%= x.created_at %>
+</td>
+
+<td>
+<a href="/users/:x.username">Show details</a>
+</td>
+
+</tr>
+<%end%>
