@@ -1,17 +1,13 @@
 
-<%user_array=User.all%>
-<%=sample_user=User.where({ :username => "galen"}).at(0)%>
-
-<%=sample_user.fetch(:username)%>
 
 
-<%=user_array.each do |x|
-p x.fetch(:username)
-end 
-
-
-%>
-
+<ul>
+<% User.all.each do |x| %>
+  <li>
+    <%= x.username %>
+  </li>
+<% end %>
+</ul>
 
 
 
