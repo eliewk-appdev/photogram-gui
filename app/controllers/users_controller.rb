@@ -13,7 +13,8 @@ class UsersController < ApplicationController
     d=User.new
     d.username=params.fetch("input_username")
     d.save
-    @input_user_name=params.fetch("input_username")
+    
+    @input_user_name=d.username
   render ({ :template => "templates/userpage.html.erb"})
   end 
 

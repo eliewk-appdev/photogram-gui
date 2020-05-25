@@ -4,6 +4,7 @@ get("/", { :controller => "users", :action =>"user_all"})
 get("/users", { :controller => "users", :action =>"user_all"})
 get("/users/:input_user_name", { :controller => "users", :action =>"user_page"})
 
+
 get("/insert_user_record", { :controller => "users", :action =>"create_row"})
 
 get("/insert_photo_record", { :controller => "photos", :action =>"create_row"})
