@@ -19,7 +19,7 @@ class PhotosController < ApplicationController
 
     
     @input_photo_id=d.id
-  render ({ :template => "templates/photopage.html.erb"})
+  redirect_to "/photos/"+d.id.to_s
   end 
 
   def create_comment
@@ -31,6 +31,6 @@ class PhotosController < ApplicationController
 
     
     @input_photo_id=g.photo_id
-  render ({ :template => "templates/photopage.html.erb"})
+  redirect_to "/photos/"+g.photo_id.to_s
   end 
 end

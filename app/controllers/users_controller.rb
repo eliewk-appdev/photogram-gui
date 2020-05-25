@@ -14,8 +14,10 @@ class UsersController < ApplicationController
     d.username=params.fetch("input_username")
     d.save
     
-    @input_user_name=d.username
-  render ({ :template => "templates/userpage.html.erb"})
+    redirect_to "/users/"+d.username
+    
+  
+  
   end 
 
 end
